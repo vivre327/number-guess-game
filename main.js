@@ -76,6 +76,8 @@ function reset(){
   pickRandomNum();
   resultArea.textContent = "결과값이 여기 나옵니다!";
   playButton.disabled = false;
+  chances = 5;
+  history = [];
 }
 
 pickRandomNum();
