@@ -77,6 +77,7 @@ function reset(){
   resultArea.textContent = "결과값이 여기 나옵니다!";
   playButton.disabled = false;
   chances = 5;
+  chanceArea.textContent = "남은기회: 5번"
   history = [];
 }
 
