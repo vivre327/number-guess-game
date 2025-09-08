@@ -3,15 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>숫자 맞추기 게임</title>
+  <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
 </head>
-  <h1>숫자 맞추기 게임!</h1>
-  <div id="result-area">결과가 나온다.</div>
-  <div id="chance-area">남은 찬스: 5번</div>
-  <input type="number" name="" id="user-input">
-  <button id="play-button">Go!</button>
-  <button id="reset-button">리셋!</button>
+<body>
+  <div class="container">
+    <main class="main">
+      <header class="header">
+        <h1 class="logo"><img src="./logo.svg" alt="로고"></h1>
+      </header>
+      <h2 class="title">숫자 맞추기 게임!</h2>
+      <section class="msg-area">
+        <p id="result-area" class="hint-msg">결과가 나온다</p>
+        <p id="chance-area" class="chance-msg">남은 찬스: 3번</p>
+      </section>
+      <div class="form-element">
+        <input type="number" name="" id="user-input" class="input" placeholder="1부터 100까지 숫자를 입력">
+        <button type="button" id="play-button" class="btn btn-primary">Go!</button>
+      </div>
+      <button type="button" id="reset-button" class="btn btn-secondary">Reset</button>
+      <p id="answer-area" class="answer-msg">정답 : </p>
+      <div class="hands left"></div>
+      <div class="hands right"></div>
+    </main>
+  </div>
   <script src="main.js"></script>
+
 </body>
 </html>

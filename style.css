@@ -1,0 +1,288 @@
+:root {
+  --bg-green: #5EA85E;
+  --text-white: #ffffeb;
+  --text-black: #1D1C1B;
+  --primary: #ff8356;
+  --disabled: #89ae89;
+}
+
+@font-face {
+    font-family: 'Waguri';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403@1.0/WAGURITTF.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/*----------------------
+  Layout
+----------------------*/
+
+html {
+  font-size: 62.5%;
+  font-family: "Pretendard";
+}
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-y: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-block: 3.2rem;
+  padding-inline: 2.4rem;
+  background-color: var(--text-white);
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding-block: 4rem;
+  padding-inline: 2.4rem;
+  border-radius: 1.6rem;
+  background-color: var(--bg-green);
+  position: relative;
+}
+
+.hands {
+  display: flex;
+  width: 12vw;
+  aspect-ratio: 1;
+  height: auto;
+  position: absolute;
+  z-index: 0;
+}
+
+.hands.left {
+  top: 8vh;
+  left: 6vw;
+}
+
+.hands.right {
+  bottom: 20vh;
+  right: 13vw;
+}
+
+.hands::after {
+  content: "";
+  display: block;
+  width: 20vw;
+  aspect-ratio: 1;
+  background-image: url("./baseball.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  padding-block: 1.6rem;
+  padding-inline: 2.2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.logo img {
+  display: block;
+  height: 5.6rem;
+}
+
+.title {
+  margin-bottom: 1.6rem;
+  font-family: "Waguri";
+  font-size: 8rem;
+  color: var(--text-white);
+  position: relative;
+  z-index: 1;
+}
+
+.msg-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1
+}
+
+.hint-msg {
+  margin-bottom: 1.6rem;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--text-black);
+}
+
+.chance-msg {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-black);
+}
+
+.answer-msg {
+  position: fixed;
+  bottom: 4.2rem;
+  right: 4rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-white);
+
+}
+
+/*----------------------
+  Button
+----------------------*/
+.btn {
+  padding-block: 0;
+  padding-inline: 1.6rem;
+  min-height: 5.6rem;
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 5.6rem;
+  color: var(--text-white);
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  transition: 0.2s ease;
+  position: relative;
+  z-index: 1
+}
+
+/* Hover / Focus (disabled 아닐 때만) */
+.btn:not(:disabled):hover,
+.btn:not(:disabled):focus {
+  filter: brightness(0.9);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+}
+
+.btn-secondary {
+  background-color: var(--text-black);
+}
+
+/* Disabled 상태 */
+.btn:disabled {
+  background-color: var(--disabled);
+  color: #555;
+  cursor: not-allowed;
+}
+
+.form-element .btn {
+  flex: 1;
+}
+
+/*----------------------
+  Text Input
+----------------------*/
+.form-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1
+}
+
+.input {
+  padding-block: 0;
+  padding-inline: 1.6rem;
+  flex: 1;
+  min-height: 5.6rem;
+  line-height: 5.6rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  font-size: 2.4rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--text-black);
+  transition: border 0.1s linear, background-color 0.1s linear;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: 1px solid var(--primary);
+}
+
+.input:focus-visible:not([readonly]) {
+  outline: 1px solid var(--primary);
+}
+
+.input[disabled] {
+  background-color: var(--disabled);
+  border-color: var(--disabled);
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.input[disabled]:active,
+.input[disabled]:focus {
+  outline: none;
+}
+
+.input[readonly] {
+  color: #333333;
+  background-color: #ffffff;
+  outline: 0;
+}
+
+.input[readonly]:focus {
+  border-color: transparent;
+  outline: none;
+}
+
+/* 태블릿 (768px 이하) */
+@media (max-width: 768px) {
+  html {
+    font-size: 56.25%;
+  }
+  .title {
+    font-size: 4.8rem;
+  }
+}
+
+/* 모바일 (480px 이하) */
+@media (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+/* 모바일 (360px 이하) */
+@media (max-width: 340px) {
+  html {
+    font-size: 46%;
+  }
+}
