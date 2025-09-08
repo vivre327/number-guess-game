@@ -1,6 +1,8 @@
 /* -------------------------------------------------------------------------- */
 /*                                    Reset                                   */
 /* -------------------------------------------------------------------------- */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
 :where(
     h1,
     h2,
